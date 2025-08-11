@@ -1,0 +1,9 @@
+0. Install NodeJS from https://nodejs.org/en/download
+1. Open VSCode
+2. Go to File -> Open Folder 
+3. Select the folder named "app" in the extracted zip folder
+4. In VSCode, go to Terminal -> New Terminal
+5. Ensure the type of terminal is Command Prompt (not Powershell)
+6. Enter the command in terminal: npm install
+7. Enter the command in terminal: npm start
+8. Go to a web browser eg. Google Chrome and type in the address bar: localhost:3000

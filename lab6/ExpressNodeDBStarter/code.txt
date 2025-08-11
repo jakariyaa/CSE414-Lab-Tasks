@@ -1,0 +1,11 @@
+npm install better-sqlite3
+
+const Database = require("better-sqlite3");
+
+const db = new Database("books.db");
+
+db.prepare("CREATE TABLE IF NOT EXISTS books (title TEXT, author TEXT, year TEXT)").run();
+
+db.prepare("INSERT INTO books (title, author, year) VALUES (?, ?, ?)").run(title, author, year);
+
+let bookList = db.prepare("SELECT * FROM books").all();
