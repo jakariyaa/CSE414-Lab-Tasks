@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Table</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="p-4">
+    <h1>Student Table</h1>
+    <form action="/student-list" method="GET">
+      <input
+        type="text"
+        class="form-control"
+        name="department"
+        placeholder="Search by Department"
+      />
+      <button type="submit" class="btn btn-primary mt-3">Search</button>
+    </form>
+    <table class="table table-striped mt-4">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Department</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let x of studentList) { %>
+        <tr
+          onclick="window.location.href='/student/<%= x.id %>'"
+          style="cursor: pointer"
+        >
+          <td><%= x.id %></td>
+          <td><%= x.name %></td>
+          <td><%= x.department %></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+    <a href="/" class="btn btn-secondary">Home Page</a>
+    <a href="/add-student" class="btn btn-secondary">Add a New Student</a>
+  </body>
+</html>
