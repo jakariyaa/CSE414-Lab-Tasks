@@ -5,12 +5,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body class="p-4">
-  <h1>Product Details</h1>
-
   <% if (product) { %>
     <div class="card" style="width: 18rem;">
       <div class="card-body">
-        <h5 class="card-title"><%= product.name %></h5>
+        <h3 class="card-title text-center mb-4"><%= product.name %></h3>
         <p class="card-text"><strong>Description:</strong> <%= product.description %></p>
         <p class="card-text"><strong>Price:</strong> <%= product.price %></p>
         <p class="card-text"><strong>Quantity:</strong> <%= product.quantity %></p>

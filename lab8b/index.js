@@ -30,8 +30,16 @@ app.use(express.urlencoded({ extended: true })); // for form data
 
 // Home page
 app.get("/", (req, res) => {
-  const productList = db.prepare("SELECT * FROM products").all();
-  res.render("home.ejs", { productList });
+  const search = req.query.name;
+  if (search) {
+    const productList = db
+      .prepare("SELECT * FROM products WHERE name LIKE ?")
+      .all(`%${search}%`);
+    res.render("home.ejs", { productList });
+  } else {
+    const productList = db.prepare("SELECT * FROM products").all();
+    res.render("home.ejs", { productList });
+  }
 });
 
 // Product details page
